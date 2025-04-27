@@ -48,17 +48,31 @@ Each service is managed as an independent Docker container.
 - **service** : Prisma (ORM)
 - **database** : PostgreSQL
 
-## 💡 Key Features
+## Features
 
-- **Monorepo Structure**  
-  Manage multiple services (frontend, backend, service) independently while maintaining a single repository for streamlined development.
+- **Monorepo Structure**
 
-- **Code Quality Enforcement**  
-  Includes ESLint v9, Prettier, Husky, and lint-staged.  
-  Lint checks are automatically triggered **before commits** to ensure code quality before pushing to remote repositories.
+  - Designed to manage each service (frontend / backend / service) independently within a single repository.  
+    Combines the efficiency of monorepo management with the flexibility of a microservices architecture.
 
-- **High Extensibility**  
-  Backend and service are implemented with a minimal template approach, making it easy to swap them with frameworks like **Hono**, **Fastify**, or **NestJS**.
+- **Dependency Management with pnpm Workspaces**
+
+  - All service dependencies are centrally managed using pnpm workspaces.  
+    This enables smoother and faster development, build, and deployment processes, providing a scalable structure.
+
+- **Code Quality Management**
+
+  - Integrated with ESLint v9, Prettier, Husky, and lint-staged to automatically trigger lint checks **before commits**.  
+    Potential issues are detected before pushing to remote repositories, maintaining consistently high code quality.
+
+- **High Extensibility**
+
+  - Backend and service layers are built with a super minimal setup, including only the essential features.  
+    Designed to allow easy replacement with frameworks like **Hono**, **Fastify**, or **NestJS** if needed.
+
+- **Seamless Transition to Production Environments**
+  - Designed to easily switch between development and production environments.  
+    `.env` management and Docker containerization enable a smooth workflow from local development to production release.
 
 ## 📜 License
 
