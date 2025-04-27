@@ -51,7 +51,7 @@ NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレ
 - **モノレポ構成**
   - 各サービス（frontend/backend/service）を独立管理しつつ、単一リポジトリで一括開発が可能です。
 - **コード品質管理**
-  - ESLint v9 / Prettier / Husky / lint-stagedを導入しています。コミットをトリガーにlintチェックが実行されるように設定されているため、リモートに反映するコードの品質担保を強制することができます。
+  - ESLint v9 / Prettier / Husky / lint-stagedを導入しています。コミット前に自動でlintチェックが実行されるように設定されているため、リモートに反映するコードの品質担保を強制することができます。
 - **拡張性**
   - backendやserviceはtemplateとして必要最小限の機能のみを組み込んだ超ミニマル構成となっています。**Hono / Fastify / NestJS**などへの置き換えも容易です。
 
