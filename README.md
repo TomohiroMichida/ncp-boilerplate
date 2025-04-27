@@ -48,7 +48,7 @@ Each service is managed as an independent Docker container.
 - **service** : Prisma (ORM)
 - **database** : PostgreSQL
 
-## Features
+## 💡 Features
 
 - **Monorepo Structure**
 
