@@ -55,7 +55,7 @@ Each service is managed as an independent Docker container.
 
 - **Code Quality Enforcement**  
   Includes ESLint v9, Prettier, Husky, and lint-staged.  
-  Lint checks are automatically triggered on commits to ensure code quality before pushing to remote repositories.
+  Lint checks are automatically triggered **before commits** to ensure code quality before pushing to remote repositories.
 
 - **High Extensibility**  
   Backend and service are implemented with a minimal template approach, making it easy to swap them with frameworks like **Hono**, **Fastify**, or **NestJS**.
