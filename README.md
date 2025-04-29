@@ -45,7 +45,7 @@ Each service is managed as an independent Docker container.
 
 - **frontend** : Next.js, Chakra UI
 - **backend** : Express
-- **service** : Prisma (ORM)
+- **service** : Express, Prisma (ORM)
 - **database** : PostgreSQL
 
 ## 💡 Features
@@ -65,10 +65,11 @@ Each service is managed as an independent Docker container.
   - Integrated with ESLint v9, Prettier, Husky, and lint-staged to automatically trigger lint checks **before commits**.  
     Potential issues are detected before pushing to remote repositories, maintaining consistently high code quality.
 
-- **High Extensibility**
+- **Extensibility**
 
-  - Backend and service layers are built with a super minimal setup, including only the essential features.  
-    Designed to allow easy replacement with frameworks like **Hono**, **Fastify**, or **NestJS** if needed.
+  - Both the backend and service layers are strictly separated by responsibility, maintaining a minimal yet production-ready structure suitable for scalable growth.
+  - All Express-specific logic is isolated within the `routes` layer, while subsequent layers are composed entirely of framework-agnostic, pure TypeScript classes. This enables seamless migration to frameworks such as **Hono**, **Fastify**, or **NestJS** by simply replacing the routing layer.
+  - The repository layer is designed around interface-based abstraction and constructor-driven dependency injection (DI), facilitating testability and ease of implementation replacement.
 
 - **Seamless Transition to Production Environments**
   - Designed to easily switch between development and production environments.  
@@ -79,4 +80,4 @@ Each service is managed as an independent Docker container.
 This project is licensed under the MIT License.  
 Feel free to use it as a foundation for your own development!
 
-© 2025 TomohiroMichida. All rights reserved.
+© 2025 TomohiroMichida.

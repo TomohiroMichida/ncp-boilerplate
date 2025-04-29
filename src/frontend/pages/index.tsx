@@ -8,7 +8,7 @@ export default function Home() {
     const fetchMessage = async () => {
       try {
         const response = await fetch(
-          process.env.NEXT_PUBLIC_API_URL + '/api/test'
+          process.env.NEXT_PUBLIC_API_URL + '/api/hello'
         );
         const data = await response.json();
         setMessage(data.message);
