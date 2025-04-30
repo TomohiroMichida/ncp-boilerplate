@@ -12,12 +12,7 @@ It focuses on development efficiency and scalability, providing a foundation des
 
 ## 🛠️ Project Architecture (Docker Containers + Ports + Protocols)
 
-Each service is managed as an independent Docker container.
-
-- The frontend sends HTTP requests to the backend (Express API server) and handles responses.
-- The backend communicates with the service (Prisma ORM service) via HTTP to delegate database operations.
-- The service directly interacts with the PostgreSQL database through Prisma for data read/write operations.
-- All containers communicate internally over a Docker network.
+Each service is managed in an independent Docker container based on its responsibilities. Thanks to its loosely coupled architecture and clear separation of concerns, the system remains flexible for both local development and future scaling.
 
 ```
 +-------------------------------------------------+
