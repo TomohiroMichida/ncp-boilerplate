@@ -32,6 +32,8 @@ services:
       context: ./src/service
       dockerfile: Dockerfile
     container_name: service
+    ports:
+      - '5000:5000'
     volumes:
       - ./src/service:/app
       - /app/node_modules

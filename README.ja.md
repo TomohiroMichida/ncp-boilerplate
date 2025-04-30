@@ -1,7 +1,7 @@
 # NCP Boilerplate
 
-NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレポ型マイクロサービス開発テンプレートです。
-開発効率・拡張性を重視し、将来的なフレームワーク置き換えや本番環境への移行を意識したひな型プロジェクトを提供します。
+NCP Boilerplateは、Next.js / Chakra UI / Prisma / PostgreSQL を採用した、スケーラブルなモノレポ構成のマイクロサービス開発テンプレートです。  
+開発初期から本番運用、さらには将来的なフレームワークの差し替えやサービス分割までを見据え、拡張性と柔軟性に優れたアーキテクチャを提供します。
 
 ## ドキュメント一覧
 
@@ -10,12 +10,7 @@ NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレ
 
 ## プロジェクト構成図（Dockerコンテナ＋ポート＋プロトコル）
 
-各サービスは独立したDockerコンテナとして管理されています。
-
-- frontendは、backend（Express API）に対してHTTPリクエストを送信し、レスポンスを受け取ります。
-- backendは、必要に応じてservice（Prisma ORM）にHTTPリクエストを送り、データ操作を委譲します。
-- serviceは、Prisma経由で直接PostgreSQLと通信し、データの読み書きを行います。
-- 各コンテナは、Docker内部ネットワーク上で相互通信します。
+各サービスは責務ごとに独立したDockerコンテナで管理され、疎結合かつ明確な役割分担により、ローカル開発や将来的なスケールまで柔軟に対応できます。
 
 ```
 +-------------------------------------------------+
@@ -43,7 +38,7 @@ NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレ
 
 - **frontend** : Next.js, Chakra UI
 - **backend** : Express
-- **service** : Prisma (ORM)
+- **service** : Express, Prisma (ORM)
 - **database** : PostgreSQL
 
 ## 特徴
@@ -55,7 +50,9 @@ NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレ
 - **コード品質管理**
   - ESLint v9 / Prettier / Husky / lint-stagedを導入し、コミット**前**に自動でlintチェックを実行します。リモートに反映される前に問題を検出し、常に高品質な状態を保つ仕組みを整えています。
 - **拡張性**
-  - backendやserviceはtemplateとして必要最小限の機能のみを組み込んだ超ミニマル構成となっています。**Hono / Fastify / NestJS**などへのスムーズな置き換えを想定して設計されています。
+  - backendおよびserviceは、責務ごとに厳密にレイヤー分離されており、templateとしての最小構成を保ちながらも、本番運用を想定した拡張性の高い設計となっています。
+  - Expressに依存する処理はroutes層に限定しており、controller以降のレイヤーはすべてフレームワーク非依存の純粋なTypeScriptクラスで構成されています。そのため、**Hono / Fastify / NestJS**など他フレームワークへの移行は、routes層の差し替えのみで対応可能となっています。
+  - repository層は、interfaceベースの抽象化と依存注入（DI）を前提としたクラス設計を採用しており、実装の差し替えやテストが比較的容易です。
 - **本番環境移行**
   - 開発環境と本番環境を柔軟に切り替えられる構成を採用。`.env`による環境変数管理とDockerコンテナ化により、開発から本番リリースまでシームレスな移行を実現しています。
 
@@ -64,4 +61,4 @@ NCP BoilerplateはNext.js + Chakra UI + Prisma + PostgreSQL構成の、モノレ
 This project is licensed under the MIT License.
 Feel free to use it as a foundation for your own development!
 
-© 2025 TomohiroMichida. All rights reserved.
+© 2025 TomohiroMichida.
