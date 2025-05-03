@@ -59,6 +59,7 @@ Each service is managed in an independent Docker container based on its responsi
 
   - Integrated with ESLint v9, Prettier, Husky, and lint-staged to automatically trigger lint checks **before commits**.  
     Potential issues are detected before pushing to remote repositories, maintaining consistently high code quality.
+  - **Unit Testing** pre‑installed—Jest + @testing‑library.<br>Run all: `pnpm test`   *Per service*: `pnpm test:frontend`, etc.
 
 - **Extensibility**
 
@@ -69,6 +70,15 @@ Each service is managed in an independent Docker container based on its responsi
 - **Seamless Transition to Production Environments**
   - Designed to easily switch between development and production environments.  
     `.env` management and Docker containerization enable a smooth workflow from local development to production release.
+
+## CI / CD
+
+| Type   | Status           | Details                                                                                                                       |
+| ------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **CI** | **✅ Enabled**   | GitHub Actions automatically runs `lint → typecheck → test → build`.<br>`pnpm‑store` is cached by lockfile hash for speed.    |
+| **CD** | **Not included** | Deployment targets differ per project (Vercel / Render / ECS / Fly.io, …), so CD is intentionally **left to template users**. |
+
+> See the workflow file at **`.github/workflows/ci.yml`** for implementation details.
 
 ## 📜 License
 
