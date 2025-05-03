@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug package.json
+        run: |
+        echo "===== package.json on runner ====="
+        cat package.json | sed -n '1,40p'
+
       - name: Enable Corepack(pnpm)
         run: corepack enable && corepack prepare pnpm@latest --activate
 
