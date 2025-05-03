@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Debug package.json
-        run: echo "packageManager = $(jq -r '.packageManager // "NO_FIELD"' package.json)"
+        run: cat package.json | grep packageManager
 
       - name: Enable Corepack(pnpm)
         run: corepack enable && corepack prepare pnpm@latest --activate
