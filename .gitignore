@@ -1,7 +1,7 @@
 node_modules/
 
 .env
-
+*.tsbuildinfo
 dist/
 .next/
 out/
