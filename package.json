@@ -30,7 +30,8 @@
     "test": "jest",
     "test:frontend": "jest --selectProjects frontend",
     "test:backend": "jest --selectProjects backend",
-    "test:service": "jest --selectProjects service"
+    "test:service": "jest --selectProjects service",
+    "type-check": "pnpm -r type-check"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": "eslint --fix"
