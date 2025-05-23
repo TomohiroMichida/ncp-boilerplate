@@ -12,7 +12,7 @@ It focuses on development efficiency and scalability, providing a foundation des
 
 ## 🛠️ Project Architecture (Docker Containers + Ports + Protocols)
 
-Each service is managed in an independent Docker container based on its responsibilities. Thanks to its loosely coupled architecture and clear separation of concerns, the system remains flexible for both local development and future scaling.
+Each service is managed in an independent Docker container based on its responsibilities.
 
 ```
 +-------------------------------------------------+
@@ -57,8 +57,8 @@ Each service is managed in an independent Docker container based on its responsi
 
 - **Code Quality Management**
 
-  - Integrated with ESLint v9, Prettier, Husky, and lint-staged to automatically trigger lint checks **before commits**.  
-    Potential issues are detected before pushing to remote repositories, maintaining consistently high code quality.
+  - Integrated with ESLint v9, Prettier, Husky, and lint-staged to automatically run lint checks and TypeScript compilation validation (`tsc --noEmit`) in pre-commit hooks.  
+    Syntax errors and type definition consistency are validated before commits, ensuring source code integrity.
   - **Unit Testing** pre‑installed—Jest + @testing‑library.<br>Run all: `pnpm test`   *Per service*: `pnpm test:frontend`, etc.
 
 - **Extensibility**
